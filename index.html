@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDG3 - Ensuring Good Health and Well-being: India's Journey</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #059669;
+            --secondary-green: #34d399;
+            --accent-teal: #14b8a6;
+            --deep-blue: #1e40af;
+            --light-gray: #f3f4f6;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .initiative-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card {
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .initiative-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-teal));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .initiative-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-number {
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .graph-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .graph-container:hover {
+            transform: scale(1.02);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #059669, #14b8a6, #0d9488, #047857);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+
+        .img-hover-zoom img {
+            transition: transform 0.5s ease;
+        }
+
+        .img-hover-zoom:hover img {
+            transform: scale(1.1);
+        }
+
+        .developer-img {
+            border-radius: 50%;
+            border: 4px solid #34d399;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .india-map {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .map-legend {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white py-6 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold">SDG3 India</div>
+            <div class="space-x-6">
+                <a href="#introduction" class="hover:text-green-200 transition">About</a>
+                <a href="#initiatives" class="hover:text-green-200 transition">Initiatives</a>
+                <a href="#metrics" class="hover:text-green-200 transition">Metrics</a>
+                <a href="#news" class="hover:text-green-200 transition">News</a>
+                <a href="#indiamap" class="hover:text-green-200 transition">India Map</a>
+                <a href="#developer" class="hover:text-green-200 transition">Developer</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-4">SDG3: Good Health and Well-being</h1>
+            <p class="text-xl">Transforming India's Healthcare Landscape</p>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="container mx-auto px-6 py-16">
+        <div class="glass-card rounded-2xl p-8 mb-12">
+            <h2 class="text-3xl font-bold text-green-800 mb-6">Understanding SDG3</h2>
+            <div class="space-y-4 text-gray-700">
+                <p>Sustainable Development Goal 3 (SDG3) is one of the 17 Sustainable Development Goals established by the United Nations in 2015. The goal aims to "ensure healthy lives and promote well-being for all at all ages" by 2030.</p>
+                <p>For India, with its population of over 1.4 billion people, SDG3 represents a crucial framework for addressing healthcare challenges and improving the overall well-being of its citizens. The goal encompasses various targets including:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Reducing maternal mortality</li>
+                    <li>Ending preventable deaths of newborns and children</li>
+                    <li>Combating communicable diseases</li>
+                    <li>Ensuring universal access to healthcare services</li>
+                    <li>Supporting research and development of vaccines and medicines</li>
+                </ul>
+                <p>By 2030, India aims to achieve universal health coverage, including financial risk protection, access to quality essential healthcare services, and access to safe, effective, quality, and affordable essential medicines and vaccines for all.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6">
+        <!-- Key Initiatives Section -->
+        <section id="initiatives" class="mb-20">
+            <h2 class="text-4xl font-bold text-green-800 mb-12 text-center">Major Healthcare Initiatives</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Ayushman Bharat -->
+                <a href="https://abdm.gov.in/" target="_blank" class="initiative-card glass-card rounded-2xl overflow-hidden">
+                    <div class="img-hover-zoom h-64">
+                        <img src="Ayushman-Bharat-Digital-Mission-4-crore.jpg" alt="Ayushman Bharat" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">Ayushman Bharat</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">Launched in September 2018, Ayushman Bharat is the world's largest health insurance scheme, providing a cover of ₹5 lakhs per family per year for secondary and tertiary care hospitalization.</p>
+                            <div class="space-y-4">
+                                <h4 class="font-semibold text-green-600">Key Achievements (2018-2024):</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• Over 500 million citizens covered under the scheme</li>
+                                    <li>• More than 50 million beneficiaries treated</li>
+                                    <li>• 25,000+ hospitals empaneled across India</li>
+                                    <li>• ₹70,000+ crore worth of treatments provided</li>
+                                    <li>• 33 states and UTs implementing the scheme</li>
+                                    <li>• 1,900+ procedures covered under the scheme</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Mission Indradhanush -->
+                <a href="https://missionindradhanush.in/" target="_blank" class="initiative-card glass-card rounded-2xl overflow-hidden">
+                    <div class="img-hover-zoom h-64">
+                        <img src="Mission-Indradhanush.jpg" alt="Mission Indradhanush" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">Mission Indradhanush</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">Launched in December 2014, Mission Indradhanush aims to immunize all children under the age of 2 years and pregnant women against preventable diseases.</p>
+                            <div class="space-y-4">
+                                <h4 class="font-semibold text-green-600">Impact and Progress (2014-2024):</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• 3.39 crore children immunized</li>
+                                    <li>• 87.18 lakh pregnant women covered</li>
+                                    <li>• Immunization coverage increased from 62% to 76%</li>
+                                    <li>• 12 vaccines now included in the program</li>
+                                    <li>• 680+ districts covered across India</li>
+                                    <li>• Special focus on 172 high-priority districts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- POSHAN Abhiyaan -->
+                <a href="https://poshanabhiyaan.gov.in/" target="_blank" class="initiative-card glass-card rounded-2xl overflow-hidden">
+                    <div class="img-hover-zoom h-64">
+                        <img src="mygov_172587612350183151.jpg" alt="POSHAN Abhiyaan" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">POSHAN Abhiyaan</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">Launched in March 2018, POSHAN Abhiyaan (National Nutrition Mission) is India's flagship program to improve nutritional outcomes for children, adolescent girls, pregnant women, and lactating mothers.</p>
+                            <div class="space-y-4">
+                                <h4 class="font-semibold text-green-600">Achievements (2018-2024):</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• 10+ crore children benefited</li>
+                                    <li>• Stunting reduction from 38.4% to 34.7%</li>
+                                    <li>• 14 lakh+ Anganwadi centers modernized</li>
+                                    <li>• 1.2 crore pregnant women supported annually</li>
+                                    <li>• Digital nutrition monitoring system implemented</li>
+                                    <li>• 85% Anganwadi workers trained in smartphone-based tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- National Health Mission -->
+                <a href="https://nhm.gov.in/" target="_blank" class="initiative-card glass-card rounded-2xl overflow-hidden">
+                    <div class="img-hover-zoom h-64">
+                        <img src="national-health-mission-blog.png" alt="National Health Mission" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">National Health Mission</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">Launched in 2013, combining the rural and urban health missions, NHM is India's largest public health program aimed at strengthening healthcare systems.</p>
+                            <div class="space-y-4">
+                                <h4 class="font-semibold text-green-600">Key Impacts (2013-2024):</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• IMR reduced from 50 to 28.6 per 1,000 births</li>
+                                    <li>• 1.5 lakh+ healthcare facilities upgraded</li>
+                                    <li>• 10 lakh+ ASHAs deployed nationwide</li>
+                                    <li>• 3,000+ mobile medical units operational</li>
+                                    <li>• 32,000+ ambulances under 108/102 services</li>
+                                    <li>• 80% increase in institutional deliveries</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Statistics and Graphs Section -->
+        <section id="metrics" class="mb-20">
+            <h2 class="text-4xl font-bold text-green-800 mb-12 text-center">Progress Metrics</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <p class="text-lg text-green-600 mb-2">Maternal Mortality Ratio</p>
+                    <div class="stat-number mb-2">97</div>
+                    <p class="text-gray-600">per 100,000 live births</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <p class="text-lg text-green-600 mb-2">Under-5 Mortality Rate</p>
+                    <div class="stat-number mb-2">32</div>
+                    <p class="text-gray-600">per 1,000 live births</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <p class="text-lg text-green-600 mb-2">Life Expectancy</p>
+                    <div class="stat-number mb-2">70.8</div>
+                    <p class="text-gray-600">years</p>
+                </div>
+            </div>
+
+            <!-- Graphs -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="graph-container">
+                    <h3 class="text-xl font-bold text-green-700 mb-6">Healthcare Coverage Trends</h3>
+                    <canvas id="coverageChart" width="400" height="300"></canvas>
+                </div>
+                <div class="graph-container">
+                    <h3 class="text-xl font-bold text-green-700 mb-6">Mortality Rate Reduction</h3>
+                    <canvas id="mortalityChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+        </section>
+<!-- News Section -->
+<section id="news" class="mb-20">
+    <h2 class="text-4xl font-bold text-green-800 mb-12 text-center">Latest Healthcare News</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        <!-- News Card 1 -->
+        <a href="https://www.mohfw.gov.in/?q=pressrelease-87" target="_blank" class="news-card glass-card rounded-xl overflow-hidden">
+            <div class="img-hover-zoom h-48">
+                <img src="1685535782798.jpeg" alt="Health Infrastructure" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="text-green-600 text-sm mb-2">February 15, 2024</div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">India Achieves Major Milestone in Health Infrastructure</h3>
+                <p class="text-gray-600">Over 1.5 lakh Ayushman Bharat Health and Wellness Centres operationalized across India, marking a significant step towards universal health coverage.</p>
+            </div>
+        </a>
+
+
+
+        <!-- News Card 2 -->
+        <a href="https://abdm.gov.in/news" target="_blank" class="news-card glass-card rounded-xl overflow-hidden">
+            <div class="img-hover-zoom h-48">
+                <img src="20230816135L.jpg" alt="Digital Health" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="text-green-600 text-sm mb-2">February 10, 2024</div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Digital Health Initiative Reaches 250 Million Registrations</h3>
+                <p class="text-gray-600">India's Digital Health ID program crosses 250 million registrations, enhancing access to healthcare services and enabling seamless medical record management.</p>
+            </div>
+        </a>
+
+
+                <!-- News Card 3 -->
+                <a href="https://www.who.int/southeastasia/news/detail/16-07-2024-who-calls-for-accelerated-and-focused-effort-to-reach-every-child-with-life-saving-vaccines-in-south-east-asia-region" target="_blank" class="news-card glass-card rounded-xl overflow-hidden">
+                    <div class="img-hover-zoom h-48">
+                        <img src="Fb33jZBaAAA0RIm.jpg" alt="Vaccination Drive" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-green-600 text-sm mb-2">January 28, 2024</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Nationwide Vaccination Drive Shows Impressive Results</h3>
+                        <p class="text-gray-600">India's immunization program reports 92% coverage for essential vaccines among children under 5 years, a significant improvement from 76% in 2018.</p>
+                    </div>
+                </a>
+    </div>
+</section>
+
+<!-- India Map Section -->
+<section id="indiamap" class="mb-20">
+    <h2 class="text-4xl font-bold text-green-800 mb-12 text-center">SDG3 Progress Across India</h2>
+
+    <div class="glass-card p-8 rounded-2xl">
+        <div class="mb-6 text-center">
+            <p class="text-lg text-gray-700 mb-6">States and Union Territories Contributing Effectively to SDG3 Goals</p>
+        </div>
+        <img src="Fig1a.jpg" alt="India Map SDG3 Progress" class="india-map mx-auto">
+
+        <!-- Chart Container -->
+        <div class="w-full max-w-4xl mx-auto">
+            <canvas id="sdgChart"></canvas>
+        </div>
+
+        <!-- Legend -->
+        <div class="map-legend mt-8 text-center">
+            <div class="inline-flex items-center space-x-4">
+                <div class="legend-item flex items-center">
+                    <div class="legend-color w-4 h-4 mr-2" style="background-color: #10B981;"></div>
+                    <span class="text-sm text-gray-700">Achiever (Score: 100)</span>
+                </div>
+                <div class="legend-item flex items-center">
+                    <div class="legend-color w-4 h-4 mr-2" style="background-color: #34D399;"></div>
+                    <span class="text-sm text-gray-700">Front-runner (Score: 65-99)</span>
+                </div>
+                <div class="legend-item flex items-center">
+                    <div class="legend-color w-4 h-4 mr-2" style="background-color: #6EE7B7;"></div>
+                    <span class="text-sm text-gray-700">Performer (Score: 50-64)</span>
+                </div>
+                <div class="legend-item flex items-center">
+                    <div class="legend-color w-4 h-4 mr-2" style="background-color: #A7F3D0;"></div>
+                    <span class="text-sm text-gray-700">Aspirant (Score: 0-49)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('sdgChart').getContext('2d');
+    const sdgChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Kerala', 'Tamil Nadu', 'Goa', 'Himachal Pradesh', 'Punjab', 'Maharashtra', 'Karnataka', 'Telangana'],
+            datasets: [{
+                label: 'SDG3 Score',
+                data: [92, 89, 87, 85, 83, 81, 79, 76],
+                backgroundColor: [
+                    '#10B981', '#34D399', '#34D399', '#6EE7B7', 
+                    '#6EE7B7', '#A7F3D0', '#A7F3D0', '#A7F3D0'
+                ],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        stepSize: 10
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+</script>
+        <!-- Developer Section -->
+        <section id="developer" class="mb-20">
+            <h2 class="text-4xl font-bold text-green-800 mb-12 text-center">Developed By</h2>
+            
+            <div class="glass-card rounded-2xl p-8 text-center">
+                <div class="mx-auto mb-6">
+                    <img src="WhatsApp Image 2025-02-18 at 12.43.11_811028e7.jpg" alt="Pavan Krishna" class="developer-img h-36 w-36 mx-auto">
+                </div>
+                <h3 class="text-2xl font-bold text-green-700 mb-2">Pavan Krishna O</h3>
+                <p class="text-gray-600 mb-4">Registration Number: 21MIS1060</p>
+            </div>
+        </section>
+
+        <!-- Reusable Components -->
+        <section class="mb-20">
+            <div class="glass-card rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold text-green-700 mb-4">100% Reusable Components</h2>
+                <p class="text-gray-700">This website was developed using entirely reusable components, following modern web development practices for sustainability and maintainability. All UI elements are modular, making future updates and modifications seamless.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 SDG3 Implementation Analysis - India</p>
+            <p class="mt-2">Developed for the course REUSE for DIGITAL ASSIGNMENt 1 </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Healthcare Coverage Chart
+        const ctxCoverage = document.getElementById('coverageChart').getContext('2d');
+        new Chart(ctxCoverage, {
+            type: 'line',
+            data: {
+                labels: ['2015', '2016', '2017', '2018', '2019', '2020'],
+                datasets: [{
+                    label: 'Healthcare Coverage (%)',
+                    data: [45, 52, 61, 70, 78, 85],
+                    borderColor: '#059669',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(5, 150, 105, 0.1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+
+        // Mortality Rate Chart
+        const ctxMortality = document.getElementById('mortalityChart').getContext('2d');
+        new Chart(ctxMortality, {
+            type: 'bar',
+            data: {
+                labels: ['2015', '2016', '2017', '2018', '2019', '2020'],
+                datasets: [{
+                    label: 'Mortality Rate',
+                    data: [167, 151, 130, 113, 103, 97],
+                    backgroundColor: '#14b8a6'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
